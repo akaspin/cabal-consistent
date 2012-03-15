@@ -28,7 +28,7 @@ if __name__ == '__main__':
     
     # what updating
     what_up = user_packs
-    cabal_exists = not len(fnmatch.filter(os.listdir('.'), "*.cabal")) == 0
+    cabal_exists = not len(fnmatch.filter(os.listdir('.'), "?*.cabal")) == 0
     if (not args.ignore_cabal) and cabal_exists:
         what_up = ['--only-dependencies', '--upgrade-dependencies']
         print '.cabal found. Upgrading local pependencies.'
