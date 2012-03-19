@@ -34,10 +34,12 @@ if __name__ == '__main__':
         print '.cabal found. Upgrading local pependencies.'
      
     if not args.quiet:
-        subprocess.call(["cabal", "install", "--dry-run", '--force-reinstalls'] 
+        subprocess.call(["cabal", "install", "--dry-run", "--one-shot", 
+                         '--force-reinstalls'] 
                         + what_keep 
                         + what_up)
         raw_input("Press any key to accept or [Ctrl-C] to cancel")
         
-    subprocess.call(["cabal", "install", '--force-reinstalls'] + what_keep 
+    subprocess.call(["cabal", "install", "--one-shot", 
+                     '--force-reinstalls'] + what_keep 
                     + what_up)
